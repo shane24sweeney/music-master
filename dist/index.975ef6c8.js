@@ -2913,18 +2913,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {
     fileName: "src/index.js",
     lineNumber: 8,
     columnNumber: 13
-}, undefined)); /*new Promise((resolve, reject) =>  {
-  return reject(new error('No Bears'));
-
-  setTimeout(() => {
-  resolve('Bears, Beets, Battlestar Galagia');
-}, 2000);
-})
-.then(quote => {
-  console.log(quote);
-})
-.catch((error)=>{console.log('error', error)});
-*/ 
+}, undefined));
 
   $parcel$ReactRefreshHelpers$20e5.postlude(module);
 } finally {
@@ -27097,13 +27086,63 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _index = require("../index");
+const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
 class App extends (0, _react.Component) {
+    state = {
+        artistQuery: ""
+    };
+    updateArtistQuery = (event)=>{
+        this.setState({
+            artistQuery: event.target.value
+        });
+        console.log("event.target.value", event.target.value);
+    };
+    searchArtist = ()=>{
+        console.log("this.state", this.state);
+        fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`).then((response)=>response.json()).then((json)=>{
+            console.log("json", json);
+            if (json.artists.total > 0) {
+                const artist = json.artists.items[0];
+                this.setState({
+                    artist
+                });
+            }
+        });
+    };
+    handleKeyPress = (event)=>{
+        if (event.onKeyPress == "Enter") this.searchArtist();
+    };
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "React App"
-        }, void 0, false, {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    children: "Music Master"
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 46,
+                    columnNumber: 12
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    onChange: this.updateArtistQuery,
+                    onKeyPress: this.handleKeyPress,
+                    placeholder: "Search for an artist"
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 47,
+                    columnNumber: 12
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: this.searchArtist,
+                    children: "Search"
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 52,
+                    columnNumber: 12
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "src/components/App.js",
-            lineNumber: 9,
+            lineNumber: 44,
             columnNumber: 9
         }, this);
     }
