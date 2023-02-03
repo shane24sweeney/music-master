@@ -27087,6 +27087,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _artist = require("./Artist");
 var _artistDefault = parcelHelpers.interopDefault(_artist);
+var _tracks = require("./Tracks");
+var _tracksDefault = parcelHelpers.interopDefault(_tracks);
 var _index = require("../index");
 const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
 class App extends (0, _react.Component) {
@@ -27125,7 +27127,7 @@ class App extends (0, _react.Component) {
                     children: "Music Master"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 52,
+                    lineNumber: 53,
                     columnNumber: 12
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -27134,7 +27136,7 @@ class App extends (0, _react.Component) {
                     placeholder: "Search for an artist"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 53,
+                    lineNumber: 54,
                     columnNumber: 12
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27142,20 +27144,27 @@ class App extends (0, _react.Component) {
                     children: "Search"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 58,
+                    lineNumber: 59,
                     columnNumber: 12
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _artistDefault.default), {
                     artist: this.state.artist
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 59,
+                    lineNumber: 60,
+                    columnNumber: 12
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _tracksDefault.default), {
+                    tracks: this.state.tracks
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 61,
                     columnNumber: 12
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/App.js",
-            lineNumber: 50,
+            lineNumber: 51,
             columnNumber: 9
         }, this);
     }
@@ -27167,7 +27176,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../index":"8lqZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Artist":"2Dz6G"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../index":"8lqZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Artist":"2Dz6G","./Tracks":"h8ijL"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27386,6 +27395,62 @@ var _c;
 $RefreshReg$(_c, "Artist");
 
   $parcel$ReactRefreshHelpers$6250.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h8ijL":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5c92 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5c92.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class Tracks extends (0, _react.Component) {
+    render() {
+        const { tracks  } = this.props;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: tracks.map((track)=>{
+                const { id , name , album , preview_url  } = track;
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: album.images[0].url,
+                            alt: "track-image"
+                        }, void 0, false, {
+                            fileName: "src/components/Tracks.js",
+                            lineNumber: 18,
+                            columnNumber: 29
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: name
+                        }, void 0, false, {
+                            fileName: "src/components/Tracks.js",
+                            lineNumber: 21,
+                            columnNumber: 29
+                        }, this)
+                    ]
+                }, id, true, {
+                    fileName: "src/components/Tracks.js",
+                    lineNumber: 16,
+                    columnNumber: 25
+                }, this);
+            })
+        }, void 0, false, {
+            fileName: "src/components/Tracks.js",
+            lineNumber: 9,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = Tracks;
+
+  $parcel$ReactRefreshHelpers$5c92.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
